@@ -1,10 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 
 const app = express();
+// inportinu config fila
+const { port } = require('./config');
 
-const PORT = 3000;
+const PORT = port || 5000;
 
 // Middleware
 app.use(cors());
@@ -38,6 +41,11 @@ const users = [
 // ROUTES
 app.get('/', (req, res) => {
   res.send('Hello World');
+});
+
+// GET /api/users - gauti visus users
+app.get('/api/users', (req, res) => {
+  res.json(users);
 });
 
 // app.listen(PORT);
