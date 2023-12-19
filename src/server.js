@@ -20,18 +20,14 @@ app.get('/', (req, res) => {
 });
 
 // inportuoju rautus
-
-// inportuoju usersRouters
 const usersRoutes = require('./routes/usersRoutes');
-
-// panaudoju usersRoutes
-app.use('/', usersRoutes);
-
-// inportuoju bookRoutes
 const bookRoutes = require('./routes/bookRoutes');
+const peopleRoutes = require('./routes/peopleRoutes');
 
-// panaudoju usersRoutes
+// panaudoju Routes
+app.use('/', usersRoutes);
 app.use('/', bookRoutes);
+app.use('/', peopleRoutes);
 
 // route error
 // jei iki cia atejo kodas, reiskia tokio

@@ -16,3 +16,13 @@ GET http://localhost:3000/api/books
 GET http://localhost:3000/api/books/1
 
 
+### PEOPLE ROUTES ===========
+
+### gauti visus people
+GET http://localhost:3000/api/people
+
+### gauti susituokusius zmones
+GET http://localhost:3000/api/people/married
+
+### gauti people algu atlyginimu vidurki
+GET http://localhost:3000/api/people/salary/avg

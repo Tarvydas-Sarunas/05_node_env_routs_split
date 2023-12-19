@@ -3,5 +3,5 @@ const config = {
   pass: process.env.PASS,
   town: process.env.TOWN,
 };
-console.log('config ===', config);
+// console.log('config ===', config);
 module.exports = config;
