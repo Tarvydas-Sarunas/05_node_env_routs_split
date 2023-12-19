@@ -38,6 +38,44 @@ const users = [
   },
 ];
 
+const books = [
+  {
+    id: 1,
+    title: 'Book 1',
+    year: 2021,
+    isPublished: true,
+    category: 'Fiction',
+  },
+  {
+    id: 2,
+    title: 'Book 2',
+    year: 2022,
+    isPublished: false,
+    category: 'Mystery',
+  },
+  {
+    id: 3,
+    title: 'Book 3',
+    year: 2020,
+    isPublished: true,
+    category: 'Fantasy',
+  },
+  {
+    id: 4,
+    title: 'Book 4',
+    year: 2019,
+    isPublished: true,
+    category: 'Science Fiction',
+  },
+  {
+    id: 5,
+    title: 'Book 5',
+    year: 2023,
+    isPublished: false,
+    category: 'Thriller',
+  },
+];
+
 // ROUTES
 app.get('/', (req, res) => {
   res.send('Hello World');
@@ -46,6 +84,50 @@ app.get('/', (req, res) => {
 // GET /api/users - gauti visus users
 app.get('/api/users', (req, res) => {
   res.json(users);
+});
+// GET /api/users/:userId - gauti viena users
+app.get('/api/users/:userId', (req, res) => {
+  const userId = +req.params.userId;
+  // surasti obj su id === userId
+  const found = users.find((uObj) => uObj.id === userId);
+  // jei neradom
+  if (found === undefined) {
+    res.status(404).json({
+      msg: `user not found with id ${userId}`,
+    });
+    return;
+  }
+  res.json(found);
+});
+
+// BOOK ROUTES============
+
+// GET gauti visas books
+app.get('/api/books', (req, res) => {
+  res.json(books);
+});
+
+// GET gauti viena book
+app.get('/api/books/:bookId', (req, res) => {
+  const bookId = +req.params.bookId;
+  const found = books.find((bObj) => bObj.id === bookId);
+  if (found === undefined) {
+    res.status(404);
+    json({
+      msg: `user not found with id ${userId}`,
+    });
+    return;
+  }
+  res.json(found);
+});
+
+// route error
+// jei iki cia atejo kodas, reiskia tokio
+// url kuriuo kreipiamasi nera
+app.get('*', (req, res) => {
+  res.status(404).json({
+    msg: 'Path does not exist',
+  });
 });
 
 // app.listen(PORT);

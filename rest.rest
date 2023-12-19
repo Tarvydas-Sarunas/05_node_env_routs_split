@@ -1,5 +1,18 @@
 GET http://localhost:3000
 
-###
+### gauti visus users
 GET http://localhost:3000/api/users
+
+### gauti viena user
+GET http://localhost:3000/api/users/1
+
+
+### BOOKS ROUTES ===========
+
+### gauti visus books
+GET http://localhost:3000/api/books
+
+### gauti viena book
+GET http://localhost:3000/api/books/1
+
 
