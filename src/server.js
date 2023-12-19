@@ -32,9 +32,11 @@ app.use('/', peopleRoutes);
 // route error
 // jei iki cia atejo kodas, reiskia tokio
 // url kuriuo kreipiamasi nera
-app.get('*', (req, res) => {
+app.all('*', (req, res) => {
   res.status(404).json({
     msg: 'Path does not exist',
+    url: req.path,
+    method: req.method,
   });
 });
 

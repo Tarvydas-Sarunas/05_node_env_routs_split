@@ -15,6 +15,17 @@ GET http://localhost:3000/api/books
 ### gauti viena book
 GET http://localhost:3000/api/books/1
 
+### prideti viena knyga
+POST http://localhost:3000/api/books/
+Content-Type: application/json
+
+{
+  "title": "Book 1",
+  "year": 2021,
+  "isPublished": true,
+  "category": "Fiction"
+}
+
 
 ### PEOPLE ROUTES ===========
 

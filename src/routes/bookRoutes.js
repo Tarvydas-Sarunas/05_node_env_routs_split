@@ -61,5 +61,12 @@ booksRouter.get('/api/books/:bookId', (req, res) => {
   res.json(found);
 });
 
+// POST sukuria nauja knyga su gauta is front informacija
+booksRouter.post('/api/books', (req, res) => {
+  const newPostObj = req.body;
+  books.push(newPostObj);
+  res.json(books);
+});
+
 // is exportuoju rautus
 module.exports = booksRouter;
