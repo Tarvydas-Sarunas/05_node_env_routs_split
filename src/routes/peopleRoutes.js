@@ -91,5 +91,7 @@ peopleRouter.get('/api/people/salary/avg', (req, res) => {
   res.json(avg);
 });
 
+// GET - /api/people/colors/red - grazins red spalva spalvu masyve
+
 // is exportuoju rautus
 module.exports = peopleRouter;
